@@ -1,0 +1,37 @@
+{
+  "name": "grunt-phpmin",
+  "version": "0.0.1",
+  "description": "Minimize PHP files removing comments, tabs and newlines",
+  "homepage": "https://github.com/swordf1zh/grunt-phpmin",
+  "repository": "git://github.com/swordf1zh/grunt-phpmin",
+  "author": {
+    "name": "Ricardo Tribaldos",
+    "email": "ricardo@tribaldos.org",
+    "url": "http://ricardo.tribaldos.org"
+  },
+  "keywords": [
+    "gruntplugin",
+    "strip",
+    "comments",
+    "strip comments",
+    "remove",
+    "remove comments",
+    "minimize"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "grunt": "~0.4.2",
+    "jshint-stylish": "~0.1.5",
+    "load-grunt-tasks": "~0.3.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
