@@ -84,6 +84,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+v0.1.0 - updated regex for single line comment
 v0.0.1 - alpha release
 
 ## License
