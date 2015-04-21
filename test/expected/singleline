@@ -3,8 +3,8 @@
   require './vendor/autoload.php';
 
   $payload = array(
-    "iss" => "http://example.org",
-    "aud" => "http://example.com",
+    "iss" => "http://this-is-not-a-comment.org",
+    "aud" => 'http://example.com#not_a_comment_either',
     "iat" => 1356999524,
     "nbf" => 1357000000,
     "exp" => time() + 30
@@ -15,7 +15,8 @@
      seconds from now. */
 
 
-  $key = "example_key";
+  $key = "example_key_with_'single#quotes'";
+  $key2 = 'example_key_with_"double//quotes"';
 
 
   $jwt = JWT::encode( $payload, $key );

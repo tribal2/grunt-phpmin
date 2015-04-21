@@ -3,17 +3,18 @@
   require './vendor/autoload.php';
 
   $payload = array(
-    "iss" => "http://example.org", // issuer
-    "aud" => "http://example.com", // audience
-    "iat" => 1356999524,           // date of issuance
-    "nbf" => 1357000000,           // don't use token before date
-    "exp" => time() + 30           // token expiration date
+    "iss" => "http://this-is-not-a-comment.org",        // issuer
+    "aud" => 'http://example.com#not_a_comment_either', // audience
+    "iat" => 1356999524,                                // date of issuance
+    "nbf" => 1357000000,                                // don't use token before date
+    "exp" => time() + 30                                // token expiration date
   );
 
 
 
   // The key we will use to encode our payload data
-  $key = "example_key";
+  $key = "example_key_with_'single#quotes'";
+  $key2 = 'example_key_with_"double//quotes"';
 
   # This is another type of PHP comment.
   $jwt = JWT::encode( $payload, $key ); # We encode our token using the
