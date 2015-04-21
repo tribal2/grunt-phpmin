@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
   grunt.registerMultiTask('phpmin', 'Minimize PHP files removing comments, tabs and newlines', function() {
 
     var trailingWhiteSpace = /[ \t]+$/gm,
-         singleLineComment = /([^:]\/\/|#)[^\n\r]*[\n\r]/g,
+         singleLineComment = /'[^']*'|"[^"]*"|((?:#|\/\/).*$)/gm,
           multilineComment = /\/\*\*?[^!][.\s\t\S\n\r]*?\*\//gm,
               tabsOrSpaces = /([ \t]{2,}|\t+)/g,
                    newLine = /\r?\n|\r/g;
@@ -57,10 +57,15 @@ module.exports = function( grunt ) {
           var contents = grunt.file.read( src );
 
           // Make replacements according to options
-          if ( options.multiline  ) { contents = contents.replace( multilineComment,  ''  ); }
-          if ( options.singleline ) { contents = contents.replace( singleLineComment, ''  ); }
-          if ( options.newline    ) { contents = contents.replace( newLine,           ' ' ); }
-          if ( options.tabs       ) { contents = contents.replace( tabsOrSpaces,      ' ' ); }
+          if( options.multiline  ) { contents = contents.replace( multilineComment,  ''  ); }
+          if( options.singleline ) {
+            contents = contents.replace( singleLineComment, function( m, group1 ) {
+              if( !group1 ) { return m; }
+              else { return ''; }
+            });
+          }
+          if( options.newline    ) { contents = contents.replace( newLine,           ' ' ); }
+          if( options.tabs       ) { contents = contents.replace( tabsOrSpaces,      ' ' ); }
 
           // We will always remove trailing whitespace
           contents = contents.replace( trailingWhiteSpace, '' );
@@ -72,17 +77,18 @@ module.exports = function( grunt ) {
         }
       });
 
-      if (tally.dirs) {
-        grunt.log.write('Created ' + tally.dirs.toString().cyan + ' directories');
-      }
-
-      if (tally.files) {
-        grunt.log.write( ( tally.dirs ? ', proccessed ' : 'Proccessed ' ) + tally.files.toString().cyan + ' files');
-      }
-
-      grunt.log.writeln();
-
     });
+
+    if (tally.dirs) {
+      grunt.log.write('Created ' + tally.dirs.toString().cyan + ' directories');
+    }
+
+    if (tally.files) {
+      grunt.log.write( ( tally.dirs ? ', proccessed ' : 'Proccessed ' ) + tally.files.toString().cyan + ' files');
+    }
+
+    grunt.log.writeln();
+
   });
 
   var detectDestType = function(dest) {
