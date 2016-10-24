@@ -32,7 +32,7 @@ exports.phpmin = {
 
     var actual = grunt.file.read('tmp/default_options');
     var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'Removing single and multiline comments and then tabs and newlines to put everything in a single line');
 
     test.done();
   },
@@ -41,7 +41,7 @@ exports.phpmin = {
 
     var actual = grunt.file.read('tmp/singleline');
     var expected = grunt.file.read('test/expected/singleline');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    test.equal(actual, expected, 'Removing single line comments only.');
 
     test.done();
   },
@@ -50,7 +50,7 @@ exports.phpmin = {
 
     var actual = grunt.file.read('tmp/multiline');
     var expected = grunt.file.read('test/expected/multiline');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    test.equal(actual, expected, 'Removing multi line comments only.');
 
     test.done();
   }

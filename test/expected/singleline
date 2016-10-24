@@ -23,8 +23,24 @@
 
 
 
+  $allowedRoutes = array(
+    '/usuarios/login',
+    '/usuarios/recover',
+    '/usuarios/recPass/*',
+    '/usuarios/resetPass/*',
+    '/test*'
+    );
+
 
   $decoded = JWT::decode( $jwt, $key, array('HS256') );
   var_dump($decoded);
-?>
 
+  /**
+   * Dummy function
+   * @param none
+   * @return none
+   */
+  function dummy() {
+    echo 'hello world';
+  }
+?>
