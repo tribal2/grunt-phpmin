@@ -17,7 +17,7 @@ module.exports = function( grunt ) {
 
     var trailingWhiteSpace = /[ \t]+$/gm,
          singleLineComment = /'[^']*'|"[^"]*"|((?:#|\/\/).*$)/gm,
-          multilineComment = /\/\*\*?[^!][.\s\t\S\n\r]*?\*\//gm,
+          multilineComment = /^\s*\/\*\*?[^!][.\s\t\S\n\r]*?\*\//gm,
               tabsOrSpaces = /([ \t]{2,}|\t+)/g,
                    newLine = /\r?\n|\r/g;
 
