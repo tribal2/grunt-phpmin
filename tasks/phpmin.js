@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
   grunt.registerMultiTask('phpmin', 'Minimize PHP files removing comments, tabs and newlines', function() {
 
     var trailingWhiteSpace = /[ \t]+$/gm,
-         singleLineComment = /'[^']*'|"[^"]*"|((?:#|\/\/).*$)/gm,
+         singleLineComment = /'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|((?:#|\/\/).*$)/gm,
           multilineComment = /^\s*\/\*\*?[^!][.\s\t\S\n\r]*?\*\//gm,
               tabsOrSpaces = /([ \t]{2,}|\t+)/g,
                    newLine = /\r?\n|\r/g;
