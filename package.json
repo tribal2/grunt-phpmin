@@ -1,6 +1,6 @@
 {
   "name": "grunt-phpmin",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Minimize PHP files removing comments, tabs and newlines",
   "homepage": "https://github.com/swordf1zh/grunt-phpmin",
   "repository": "git://github.com/swordf1zh/grunt-phpmin",

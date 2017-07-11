@@ -17,6 +17,9 @@
   // The key we will use to encode our payload data
   $key = "example_key_with_'single#quotes'";
   $key2 = 'example_key_with_"double//quotes"';
+	$key3 = 'example with \'escaped quotes\' #1';
+	$key4 = "example with \"escaped quotes\" #2";
+	$msg = 'You\'ve used this password recently. Please choose another.';
 
   # This is another type of PHP comment.
   $jwt = JWT::encode( $payload, $key ); # We encode our token using the
